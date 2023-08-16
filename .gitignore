@@ -1,0 +1,6 @@
+# VScode
+.vscode/*
+!.vscode/settings.json
+
+#Credentials
+**/creds.ini
