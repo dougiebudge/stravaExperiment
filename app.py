@@ -53,3 +53,22 @@ class FetchData:
                 my_dataset.append(new_data)
             i = +1
         return my_dataset
+
+
+# Step 2: Process data
+class Processing:
+    def __init__(self):
+        pass
+
+    def prepData(self, data):
+        pass
+        # drop swims
+        # pick columns of interest
+        # handle datetimes
+        # fillnas
+        # reset indexes
+
+    def createVars(self, data):
+        # generate pace and calculated fields
+        # create categorical variables
+        pass
