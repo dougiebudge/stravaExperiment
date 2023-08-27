@@ -4,3 +4,6 @@
 
 #Credentials
 **/creds.ini
+
+#Files
+oldApp.py
