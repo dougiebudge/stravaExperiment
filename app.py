@@ -30,26 +30,19 @@ class FetchData:
         self.ActivityURL = "https://www.strava.com/api/v3/athlete/activities"
         self.SegmentURL = "https://www.strava.com/api/v3/segments/explore"
 
-    def FetchMeData(self, token, dataChoice):
+    def FetchMeData(self, token):
         header = {"Authorization": "Bearer " + token}
-        if dataChoice == "Segment":
-            endpoint = self.SegmentURL
-        elif dataChoice == "Activity":
-            endpoint = self.ActivityURL
-        else:
-            return "Please select 'Activity' or 'Segment'"
+        endpoint = self.ActivityURL
         flag = False
+        i = 1
         while flag == False:
-            i = 1
             param = {"per_page": 200, "page": i}
             new_data = requests.get(endpoint, headers=header, params=param).json()
-            if ValueError:
-                flag = True
-            else:
-                flag = False
             if i == 1:
                 my_dataset = new_data
             else:
-                my_dataset.append(new_data)
-            i = +1
+                my_dataset = my_dataset + new_data
+            if len(new_data) == 0:
+                flag = True
+            i += 1
         return my_dataset
